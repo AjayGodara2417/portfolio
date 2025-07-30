@@ -4,7 +4,7 @@ This is a fully responsive and beautifully designed landing page for **ADmyBRAND
 
 ## 🌐 Live Demo
 
-👉 [Click here to view the live site](https://your-vercel-deployment-url.vercel.app)
+👉 [Ad-My-Brand](https://ad-my-brand-ten.vercel.app/)
 
 ## 🛠️ Tech Stack
 
@@ -27,22 +27,52 @@ This is a fully responsive and beautifully designed landing page for **ADmyBRAND
 - 🎨 Glassmorphism & modern design trends
 - 💡 Reusable component system
 
+## Dark Button
+- 🌜 Added dark button to toggle between 🌜 dark mode and ☀️ light mode on the web application
+
 ## 🧠 Folder Structure
 
 ```bash
 src/
-├── app/                # Next.js App Router pages
+├── app/
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+│
 ├── components/         # Custom + shadcn components
-│   ├── ui/             # Button, Card, Container, SectionHeading, etc.
+│   └── ui/             # Button, Card, Container, SectionHeading, etc.
+│       ├── ContactForm.tsx
+│       ├── FAQ.tsx
+│       ├── Features.tsx
+│       ├── Footer.tsx
+│       ├── Hero.tsx
+│       ├── Navbar.tsx
+│       ├── Pricing.tsx
+│       ├── Testimonials.tsx
+│       └── ThemeToggle.tsx
+│
 ├── data/               # Testimonial, FAQ, Pricing, Features data
+│   ├── faqs.ts
+│   ├── features.ts
+│   ├── pricing.ts
+│   └── testimonials.ts
+│
+└── lib/
+    ├── use-theme.ts
+    └── utils.ts
 ```
 
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/your-username/admybrand-landing
+git clone hhttps://github.com/AjayGodara2417/ad-my-brand
+
 cd admybrand-landing
+
 npm install
+
 npm run dev
 ````
+
 made with 💓 by Ajay Godara
