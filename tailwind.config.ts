@@ -3,7 +3,11 @@ export default {
  darkMode: 'class', // ✅ valid here
  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
  theme: {
-   extend: {},
+   extend: {
+    backdropBlur: {
+      xs: '2px',
+    },
+   },
  },
  plugins: [],
 }

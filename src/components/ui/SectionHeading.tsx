@@ -18,7 +18,7 @@ export function SectionHeading({
   return (
     <div className={cn('mb-12', alignment, className)}>
       <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>
-      {subtitle && <p className="mt-2 text-muted-foreground text-lg">{subtitle}</p>}
+      {subtitle && <p className="mt-2 text-lg text-orange-400">{subtitle}</p>}
     </div>
   )
 }

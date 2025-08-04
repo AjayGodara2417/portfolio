@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/Button'
@@ -9,12 +10,8 @@ import { SectionHeading } from './ui/SectionHeading'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function ContactForm() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
-
+  const formRef = useRef<HTMLFormElement>(null)
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (
@@ -27,19 +24,32 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    // Save to localStorage (for demo only, replace with API call if needed)
     localStorage.setItem('contactFormSubmission', JSON.stringify(form))
-    setSubmitted(true)
-    setForm({ name: '', email: '', message: '' })
+
+    if (formRef.current) {
+      emailjs
+        .sendForm(
+          'service_hj1dnvh',
+          'template_m68n9hc',
+          formRef.current,
+          '8ILQkbUtUigc7sF11'
+        )
+        .then(() => {
+          setSubmitted(true)
+          setForm({ name: '', email: '', message: '' })
+        })
+        .catch((error) => {
+          console.error('EmailJS Error:', error)
+        })
+    }
   }
 
   return (
-    <section id="contact" className="py-24 bg-muted/20">
+    <section id="contact" className="py-24 bg-muted/10">
       <Container>
         <SectionHeading
           title="Get in Touch"
-          subtitle="We&apos;d love to hear from you."
-
+          subtitle="I'd love to hear from you."
         />
 
         <AnimatePresence mode="wait">
@@ -52,10 +62,11 @@ export default function ContactForm() {
               transition={{ duration: 0.4 }}
               className="text-center text-green-600 mt-6 text-lg font-medium"
             >
-              ✅ Thanks for contacting us! We&apos;ll get back to you soon.
+              ✅ Thanks for contacting me! I&apos;ll get back to you soon.
             </motion.div>
           ) : (
             <motion.form
+              ref={formRef}
               key="form"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -64,59 +75,33 @@ export default function ContactForm() {
               onSubmit={handleSubmit}
               className="mt-8 max-w-xl mx-auto space-y-4"
             >
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
-              >
-                <Input
-                  required
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={form.name}
-                  onChange={handleChange}
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <Input
-                  required
-                  type="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  value={form.email}
-                  onChange={handleChange}
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <Textarea
-                  required
-                  name="message"
-                  placeholder="Write your message here..."
-                  value={form.message}
-                  onChange={handleChange}
-                  rows={5}
-                />
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </motion.div>
+              <Input
+                required
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={form.name}
+                onChange={handleChange}
+              />
+              <Input
+                required
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                value={form.email}
+                onChange={handleChange}
+              />
+              <Textarea
+                required
+                name="message"
+                placeholder="Write your message here..."
+                rows={5}
+                value={form.message}
+                onChange={handleChange}
+              />
+              <Button type="submit" className="w-full">
+                Send Message
+              </Button>
             </motion.form>
           )}
         </AnimatePresence>

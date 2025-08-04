@@ -1,21 +1,21 @@
 'use client'
 
 import { Container } from './ui/Container'
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react'
+import { Instagram, Linkedin, Github, X } from 'lucide-react'
 import Link from 'next/link'
 
 const links = [
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Technologies', href: '#technology' },
+  { label: 'Contact Me', href: '#contact' },
 ]
 
 const socials = [
-  { icon: Facebook, href: 'https://facebook.com' },
-  { icon: Twitter, href: 'https://twitter.com' },
-  { icon: Instagram, href: 'https://instagram.com' },
-  { icon: Linkedin, href: 'https://linkedin.com' },
+  { icon: Github, href: 'https://github.com/AjayGodara2417' },
+  { icon: X, href: 'https://x.com/AjayGodara2417' },
+  { icon: Instagram, href: 'https://instagram.com/thenameisajaygodara' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/ajay-godara-2b05b4210/' },
 ]
 
 export default function Footer() {
@@ -25,8 +25,8 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-3 items-start text-center md:text-left">
           {/* Branding */}
           <div className="space-y-2">
-            <h4 className="text-xl font-bold text-foreground">ADmyBRAND AI</h4>
-            <p className="text-sm">© {new Date().getFullYear()} All rights reserved.</p>
+            <h4 className="text-xl font-bold text-foreground hover:text-orange-400">Ajay Godara</h4>
+            <p className="text-sm hover:text-orange-400">© {new Date().getFullYear()} All rights reserved.</p>
           </div>
 
           {/* Nav Links */}
@@ -35,10 +35,10 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm relative group hover:text-primary transition"
+                className="text-sm relative group hover:text-orange-400 transition"
               >
                 {link.label}
-                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                <span className="absolute left-0 -bottom-1 w-0 h-0.5 transition-all duration-300 group-hover:w-full group-hover:bg-orange-400" />
               </a>
             ))}
           </div>
@@ -53,7 +53,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="group"
               >
-                <Icon className="w-5 h-5 group-hover:scale-110 transition-transform text-muted-foreground hover:text-primary" />
+                <Icon className="w-5 h-5 group-hover:scale-110 hover:text-orange-400 transition-transform text-muted-foreground " />
               </Link>
             ))}
           </div>

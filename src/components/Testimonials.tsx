@@ -26,8 +26,8 @@ export default function Testimonials() {
     <section id="testimonials" className="py-24 bg-muted/10">
       <Container>
         <SectionHeading
-          title="What Our Customers Say"
-          subtitle="Real feedback from real users"
+          title="My Recruiters Experience"
+          subtitle="about me"
         />
 
         <div className="flex items-center justify-center gap-6 flex-wrap">

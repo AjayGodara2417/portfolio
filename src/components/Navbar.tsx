@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ThemeToggle } from './ThemeToggle'
 
-const navItems = ['Features', 'Pricing', 'Testimonials', 'FAQ']
+const navItems = ['Experience', 'Projects', 'Technology', 'Contact']
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -13,8 +13,8 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-background/70 backdrop-blur border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          ADmyBRAND AI
+        <Link href="/" className="text-2xl font-bold font-serif tracking-tight  hover:text-orange-400">
+          Ajay Godara
         </Link>
         
 
@@ -22,10 +22,10 @@ export default function Navbar() {
         <ThemeToggle />
         <nav className="hidden md:flex space-x-6">
           {navItems.map(item => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="text-sm relative group hover:text-primary transition">
+            <Link key={item} href={`#${item.toLowerCase()}`} className="text-sm relative group hover:text-orange-400 transition">
               {item}
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-            </a>
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 transition-all duration-600 group-hover:w-full group-hover:bg-orange-400" />
+            </Link>
           ))}
         </nav>
         </div>
@@ -42,9 +42,9 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2">
           {navItems.map(item => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="block text-sm font-medium">
+            <Link key={item} href={`#${item.toLowerCase()}`} className="block text-sm font-medium">
               {item}
-            </a>
+            </Link>
           ))}
         </div>
       )}

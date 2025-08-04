@@ -1,22 +1,24 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import Features from '@/components/Features'
-import Pricing from '@/components/Pricing'
 import Testimonials from '@/components/Testimonials'
-import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 import ContactForm from '@/components/ContactForm'
+import Experience from '@/components/Experience'
+import TechStack from '@/components/TechStack'
+import Projects from '@/components/Projects'
+import SocialLinks from '@/components/SocialLinks'
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
-      <Features />
-      <Pricing />
+      <TechStack />
+      <Experience />
+      <Projects />
+      <SocialLinks />
       <Testimonials />
       <ContactForm />
-      <FAQ />
       <Footer />
     </main>
   )
